@@ -1,6 +1,6 @@
 
 
-public abstract class Primitive {
+public abstract class Primitive implements Comparable<Primitive> {
 	
 	public abstract double getCircumference();
 	public abstract double getArea();

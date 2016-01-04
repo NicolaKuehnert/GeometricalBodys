@@ -40,4 +40,23 @@ public class Rectangle extends Primitive implements IAngular{
 	public int getHeight() {
 		return height;
 	}
+
+
+	@Override
+	public int compareTo(Primitive p) {
+		if(p.getCircumference() > getCircumference()){
+            System.out.println("Umfang von " + p + " ist groesser!");
+            return 1;
+        }
+        else if( p.getCircumference() < getCircumference())
+        {
+            System.out.println("Umfang von " + p +" ist kleiner!");
+            return -1;
+        }
+        else
+        {
+            System.out.println("Umfang von " + p +" ist gleich gross!");
+            return 0;
+        }
+	}
 }

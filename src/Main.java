@@ -26,6 +26,8 @@ public class Main {
 		} catch (WrongArgumentException e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println(myRectangle.compareTo(mySquare));
 
 		ListPrimitives list2 = new ListPrimitives();
 		list2.load(new File("blub.text"));
@@ -74,6 +76,8 @@ public class Main {
 		
 		
 		listAngular.getByIndex(0);
+		
+		
 		
 		//System.out.println("2 Exceptions ");
 		

@@ -1,4 +1,4 @@
-package geometry;
+
 
 public class Square extends Rectangle implements IAngular{
 	

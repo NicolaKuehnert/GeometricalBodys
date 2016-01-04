@@ -1,4 +1,4 @@
-package geometry;
+
 
 public class Rectangle extends Primitive implements IAngular{
 

@@ -1,4 +1,3 @@
-package geometry;
 
 public class AngularArgumentException extends WrongArgumentException {
 

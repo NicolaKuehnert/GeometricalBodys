@@ -1,4 +1,4 @@
-package geometry;
+
 
 public class MyArrayOutOfBoundsException extends ArrayIndexOutOfBoundsException{
 

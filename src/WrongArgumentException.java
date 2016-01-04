@@ -1,4 +1,4 @@
-package geometry;
+
 
 public class WrongArgumentException extends Exception {
 	

@@ -1,4 +1,4 @@
-package geometry;
+
 
 import java.io.File;
 
@@ -54,7 +54,7 @@ public class Main {
 		
 		try {
 			listRound.add(myCircle);
-			listRound.add(myRectangle);
+			//listRound.add(myRectangle);
 		} catch (AngularArgumentException e) {
 			e.printStackTrace();
 		}catch (WrongArgumentException e) {
@@ -65,7 +65,7 @@ public class Main {
 		
 		try {
 			listAngular.add(myRectangle);
-			listAngular.add(myCircle);
+			//listAngular.add(myCircle);
 		} catch (RoundArgumentException e) {
 			e.printStackTrace();
 		}catch (WrongArgumentException e) {
@@ -73,9 +73,9 @@ public class Main {
 		}
 		
 		
-		listAngular.getByIndex(3);
+		listAngular.getByIndex(0);
 		
-		System.out.println("2 Exceptions ");
+		//System.out.println("2 Exceptions ");
 		
 		
 	}

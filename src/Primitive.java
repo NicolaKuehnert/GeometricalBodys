@@ -1,4 +1,4 @@
-package geometry;
+
 
 public abstract class Primitive {
 	

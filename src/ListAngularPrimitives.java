@@ -1,4 +1,3 @@
-package geometry;
 
 public class ListAngularPrimitives extends ListPrimitives {
 

@@ -1,6 +1,7 @@
 
 public interface Comparable<T> 
 {
-	public int compareTo(T p);
+	public int compareUmfang(T p);
+	public int compareArea(T p);
 
 }

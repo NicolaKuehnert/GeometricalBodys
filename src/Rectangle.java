@@ -4,22 +4,27 @@ public class Rectangle extends Primitive implements IAngular{
 
 	private Point startPoint;
 	private int length,height;
+	private double circumference;
+	private double area;
 	
 	public Rectangle (Point startPoint, int length, int height) {
 		this.startPoint=startPoint;
 		this.length=length;
 		this.height=height;
+		
+		circumference = 2*length+2*height;
+		area = length*height;
 	}
 	
 	
 	@Override
 	public double getCircumference() {
-		return 2*length+2*height;
+		return circumference;
 	}
 
 	@Override
 	public double getArea() {
-		return length*height;
+		return area;
 	}
 
 	@Override
@@ -43,19 +48,31 @@ public class Rectangle extends Primitive implements IAngular{
 
 
 	@Override
-	public int compareTo(Primitive p) {
+	public int compareUmfang(Primitive p) {
 		if(p.getCircumference() > getCircumference()){
-            System.out.println("Umfang von " + p + " ist groesser!");
             return 1;
         }
         else if( p.getCircumference() < getCircumference())
         {
-            System.out.println("Umfang von " + p +" ist kleiner!");
             return -1;
         }
         else
         {
-            System.out.println("Umfang von " + p +" ist gleich gross!");
+            return 0;
+        }
+	}
+	
+	@Override
+	public int compareArea(Primitive p) {
+		if(p.getArea() > getArea()){
+            return 1;
+        }
+        else if( p.getArea() < getArea())
+        {
+            return -1;
+        }
+        else
+        {
             return 0;
         }
 	}

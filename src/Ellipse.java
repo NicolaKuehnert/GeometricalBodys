@@ -4,22 +4,27 @@ public class Ellipse extends Primitive implements IRound{
 	private Point center;
 	private int longSemiaxis;
 	private int shortSemiaxis;
+	private double circumference;
+	private double area;
 	
 	public Ellipse(Point center, int longSemiaxis, int shortSemiaxis) {
 		super();
 		this.center = center;
 		this.longSemiaxis = longSemiaxis;
 		this.shortSemiaxis = shortSemiaxis;
+
+		circumference = Math.PI*(longSemiaxis+shortSemiaxis);
+		area = Math.PI*longSemiaxis*shortSemiaxis;
 	}
 	
 	@Override
 	public double getCircumference() {
-		return Math.PI*(longSemiaxis+shortSemiaxis);
+		return circumference;
 	}
 
 	@Override
 	public double getArea() {
-		return Math.PI*longSemiaxis*shortSemiaxis;
+		return area;
 	}
 	
 	@Override
@@ -41,19 +46,31 @@ public class Ellipse extends Primitive implements IRound{
 	}
 
 	@Override
-	public int compareTo(Primitive p) {
+	public int compareUmfang(Primitive p) {
 		if(p.getCircumference() > getCircumference()){
-            System.out.println("Umfang von " + p + " ist groesser!");
             return 1;
         }
         else if( p.getCircumference() < getCircumference())
         {
-            System.out.println("Umfang von " + p +" ist kleiner!");
             return -1;
         }
         else
         {
-            System.out.println("Umfang von " + p +" ist gleich gross!");
+            return 0;
+        }
+	}
+	
+	@Override
+	public int compareArea(Primitive p) {
+		if(p.getArea() > getArea()){
+            return 1;
+        }
+        else if( p.getArea() < getArea())
+        {
+            return -1;
+        }
+        else
+        {
             return 0;
         }
 	}

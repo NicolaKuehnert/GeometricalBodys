@@ -17,17 +17,14 @@ public class Main {
 			list.add(myRectangle);
 			list.add(mySquare);
 			list.add(myEllipse);
-			list.add(myEllipse);
 			list.add(myEllipse2);
-			list.add(myEllipse);
-			list.add(myEllipse);
 			list.print();
 			list.save(new File("blub.text"));
 		} catch (WrongArgumentException e) {
 			e.printStackTrace();
 		}
 		
-		System.out.println(myRectangle.compareTo(mySquare));
+		
 
 		ListPrimitives list2 = new ListPrimitives();
 		list2.load(new File("blub.text"));
@@ -43,12 +40,17 @@ public class Main {
 		list.print();
 
 		System.out.println("2. Liste =============== \n\n\n");
-		list2.print();
+		//list2.print();
+		
+		list2.sort();
+		
+		System.out.println("2. Liste, neuer Sort \n\n");
+		
 
-		// System.out.println(myCircle);
-		// System.out.println(myRectangle);
-		// System.out.println(mySquare);
-		// System.out.println(myEllipse);
+		 //System.out.println(myCircle);
+		 //System.out.println(myRectangle);
+		 //System.out.println(mySquare);
+		 //System.out.println(myEllipse);
 		
 		for(int i=0; i<10; i++)	System.out.println();
 		

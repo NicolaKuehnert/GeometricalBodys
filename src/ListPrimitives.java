@@ -9,10 +9,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ListPrimitives {
+public class ListPrimitives implements Comparabla<Primitive>{
 	public static final int MAX_PRIMITIVES = 10;
 
-	private ArrayList<Primitive> list;
+	private List<Primitive> list;
 
 	public ListPrimitives() {
 		this.list = new ArrayList<Primitive>();
@@ -106,7 +106,7 @@ public class ListPrimitives {
 		} while (swapped);
 	}
 
-	public void sortArea() {
+	/*public void sortArea() {
 		int size = list.size();
 		Primitive swap = null;
 		boolean swapped = false;
@@ -130,7 +130,9 @@ public class ListPrimitives {
 			}
 			size--;
 		} while (swapped);
-	}
+	}*/
+	
+	
 
 	public void print() {
 		for (int i = 0; i < list.size(); i++) {
@@ -202,5 +204,92 @@ public class ListPrimitives {
 			throw new MyArrayOutOfBoundsException();
 		}
 		return this.list.get(index);
+	}
+	
+	public void sort()
+	{
+		int size = list.size();
+		Primitive swap = null;
+		boolean swapped = false;
+		do {
+			swapped = false;
+			for (int i = 0; i < size - 1; ++i) 
+			{
+				if (list.get(i) == null && list.get(i+1) != null) 
+				{
+					list.set(i, list.get(i+1));
+					list.remove(i+1);
+					swapped = true;
+				} 
+				/*else if (list.get(i).compareArea(list.get(i+1)) == 1) 
+				{
+					swap = list.get(i);
+					list.set(i, list.get(i+1));
+					list.set(i+1, swap);
+					swapped = true;
+				}*/
+				else if (list.get(i).compareArea(list.get(i+1)) == -1) 
+				{
+					swap = list.get(i+1);
+					list.set(i+1, list.get(i));
+					list.set(i, swap);
+					swapped = true;
+				}
+				else if (list.get(i).compareArea(list.get(i+1)) == 0) 
+				{
+					/*if (list.get(i).compareUmfang(list.get(i+1)) == 1)
+					{
+						swap = list.get(i);
+						list.set(i, list.get(i+1));
+						list.set(i+1, swap);
+						swapped = true;
+					}*/
+					if (list.get(i).compareUmfang(list.get(i+1)) == -1) 
+					{
+						swap = list.get(i+1);
+						list.set(i+1, list.get(i));
+						list.set(i, swap);
+						swapped = true;
+					}
+				}
+			}
+			
+			size--;
+		} while (swapped);
+		print();
+	}
+
+	@Override
+	public int compareTo(Primitive p1, Primitive p2) {
+		return Comparator.AREAANDCIRCUMFERENCE.compare(p1, p2);
+	}
+	
+	public void sortAll()
+	{
+		int size = list.size();
+		Primitive swap = null;
+		boolean swapped = false;
+		do {
+			swapped = false;
+			for (int i = 0; i < size - 1; ++i) {
+				if (list.get(i) == null && list.get(i+1) == null) {
+
+				} else if (list.get(i) != null && list.get(i+1) == null) {
+
+				} else if (Collections.sort(list, Comparator.AREAANDCIRCUMFERENCE) == 1) {
+					list.set(i, list.get(i+1));
+					list.remove(i+1);
+					swapped = true;
+				} else {
+					if (Collections.sort(list, Comparator.AREAANDCIRCUMFERENCE) == -1) {
+						swap = list.get(i);
+						list.set(i, list.get(i+1));
+						list.set(i+1, swap);
+						swapped = true;
+					}
+				}
+			}
+			size--;
+		} while (swapped);
 	}
 }
